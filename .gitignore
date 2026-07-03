@@ -4,8 +4,11 @@ dist/
 .DS_Store
 .env
 .envrc
-.tools/
+.tools/*
+!.tools/
+!.tools/use-node20.ps1
 image.png
+!image.png
 *.db
 *.db-shm
 *.db-wal

@@ -83,7 +83,7 @@ File will have a lot of other settings, don't disturb them but just add another 
 Then, completely restart the Claude Desktop. i.e. Close it even from Task Manager and start again, not just closing the app.
 You should see MCP server running in developer settings as in the screenshot below.
 
-![locate the config file and verify its working.](image.png)
+![Claude Desktop configuration and MCP server verification](README-screenshot.png)
 
 
 ```json
