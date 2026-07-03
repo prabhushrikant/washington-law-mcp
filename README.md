@@ -2,6 +2,9 @@
 
 An MCP (Model Context Protocol) server that provides offline access to Washington State's Revised Code of Washington (RCW) and Washington Administrative Code (WAC) for AI agents.
 
+## Requirements
+- ** Node.js v20
+
 ## Features
 
 - **Completely Offline**: All law texts are stored locally in SQLite database
@@ -22,7 +25,6 @@ The project consists of two main components:
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd law_rule_mcp
 
 # Install dependencies
 npm install
@@ -39,6 +41,11 @@ npm run build
 
 ## Usage
 
+### Switch to use Node v20
+```
+Run `.\.tools\use-node20.ps1`
+```
+
 ### Running the MCP Server
 
 ```bash
@@ -53,6 +60,7 @@ npm test
 
 ### Configuring with Claude Desktop
 
+#### MacOS
 Add to your Claude Desktop configuration (`~/Library/Application Support/Claude/claude_desktop_config.json`):
 
 ```json
@@ -65,6 +73,32 @@ Add to your Claude Desktop configuration (`~/Library/Application Support/Claude/
   }
 }
 ```
+
+#### Windows
+Add to your Claude Desktop configuration (`"~\AppData\Local\Packages\Claude_pzs8sxrjxfjjc\LocalCache\Roaming\Claude\claude_desktop_config.json"`)
+
+If you can't locate the file in above location, you can also find it via following screen in your Claude Desktop > hamburger menu (=) > Settings > Developer
+File will have a lot of other settings, don't disturb them but just add another json field e.g. after `preferences` as shown below.
+
+Then, completely restart the Claude Desktop. i.e. Close it even from Task Manager and start again, not just closing the app.
+You should see MCP server running in developer settings as in the screenshot below.
+
+![locate the config file and verify its working.](image.png)
+
+
+```json
+  "preferences": {....},
+  "mcpServers": {
+    "washington-law": {
+      "command": "C:\\your\\path\\to\\washington-law-mcp\\.tools\\node-v20.20.2-win-x64\\node.exe",
+      "args": [
+        "C:\\your\\path\\to\\washington-law-mcp\\dist\\index.js"
+      ]
+    }
+  }
+```
+
+
 
 ## Available MCP Tools
 

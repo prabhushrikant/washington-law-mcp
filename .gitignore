@@ -3,3 +3,10 @@ dist/
 *.log
 .DS_Store
 .env
+.envrc
+.tools/
+image.png
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
